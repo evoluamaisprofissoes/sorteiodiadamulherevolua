@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorteio Dia Internacional das Mulheres</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-background: #fff5f9;
+      --color-surface: #ffe4f0;
+      --color-text: #5a1d3f;
+      --color-primary: #e91e8c;
+      --color-secondary: #ff69b4;
+    }
+    
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    
+    .app-wrapper {
+      min-height: 100%;
+      width: 100%;
+    }
+    
+    .font-display {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    
+    .font-body {
+      font-family: 'Poppins', system-ui, sans-serif;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #fff5f9 0%, #ffeaf5 50%, #ffd6e8 100%);
+    }
+    
+    .glow-text {
+      text-shadow: 0 0 40px rgba(233, 30, 140, 0.3), 0 0 80px rgba(233, 30, 140, 0.2);
+    }
+    
+    .card-glow {
+      box-shadow: 0 0 60px rgba(233, 30, 140, 0.15), 0 25px 50px -12px rgba(233, 30, 140, 0.2);
+    }
+    
+    .btn-glow {
+      box-shadow: 0 0 30px rgba(233, 30, 140, 0.4), 0 10px 40px rgba(233, 30, 140, 0.3);
+    }
+    
+    .btn-glow:hover {
+      box-shadow: 0 0 50px rgba(233, 30, 140, 0.6), 0 15px 50px rgba(233, 30, 140, 0.4);
+    }
+    
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .sparkle {
+      animation: sparkle 2s ease-in-out infinite;
+    }
+    
+    @keyframes sparkle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.1); }
+    }
+    
+    .slide-up {
+      animation: slideUp 0.8s ease-out forwards;
+    }
+    
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .input-focus:focus {
+      box-shadow: 0 0 0 3px rgba(233, 30, 140, 0.3);
+    }
+    
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: particleFloat 4s ease-in-out infinite;
+    }
+    
+    @keyframes particleFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+      50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+    }
+    
+    .success-checkmark {
+      animation: checkmarkPop 0.5s ease-out forwards;
+    }
+    
+    @keyframes checkmarkPop {
+      0% { transform: scale(0); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+ </head>
+ <body class="h-full">
+  <div class="app-wrapper gradient-bg font-body overflow-auto" style="background-color: var(--color-background);">
+   <!-- Decorative Particles -->
+   <div class="fixed inset-0 overflow-hidden pointer-events-none">
+    <div class="particle w-2 h-2 top-[10%] left-[10%]" style="background: var(--color-primary); animation-delay: 0s;"></div>
+    <div class="particle w-3 h-3 top-[20%] right-[15%]" style="background: var(--color-secondary); animation-delay: 0.5s;"></div>
+    <div class="particle w-2 h-2 top-[40%] left-[5%]" style="background: var(--color-primary); animation-delay: 1s;"></div>
+    <div class="particle w-4 h-4 top-[60%] right-[10%]" style="background: var(--color-secondary); animation-delay: 1.5s;"></div>
+    <div class="particle w-2 h-2 top-[80%] left-[20%]" style="background: var(--color-primary); animation-delay: 2s;"></div>
+    <div class="particle w-3 h-3 bottom-[15%] right-[25%]" style="background: var(--color-secondary); animation-delay: 2.5s;"></div>
+   </div>
+   <div class="relative z-10 w-full px-4 py-8 md:py-12">
+    <!-- Header Banner -->
+    <header class="text-center mb-8 md:mb-12 slide-up">
+     <div class="inline-block mb-4">
+      
+      <div class="flex items-center justify-center gap-4">
+        <img src="assets/logo-evolua-feminina.webp" alt="Evolua+ Profissões" class="w-28 h-28 md:w-36 md:h-36 rounded-2xl object-contain bg-white/70 p-2 shadow-lg" />
+        <span class="floating inline-block text-5xl md:text-7xl">👑</span>
+      </div>
+    
+     </div>
+     <p id="subtitulo" class="text-sm md:text-base uppercase tracking-[0.3em] mb-3" style="color: var(--color-primary);">Dia Internacional das Mulheres</p>
+     <h1 id="titulo-principal" class="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-4 glow-text" style="color: var(--color-text);">Sorteio Especial</h1>
+     <div class="flex items-center justify-center gap-3 mb-6">
+      <span class="sparkle text-2xl">✨</span>
+      <p id="premio-descricao" class="text-lg md:text-xl font-light" style="color: var(--color-primary);">Concorra a prêmios incríveis!</p><span class="sparkle text-2xl" style="animation-delay: 0.5s;">✨</span>
+     </div><!-- Date Badge -->
+     <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full border" style="background: var(--color-surface); border-color: var(--color-primary);">
+      <span class="text-xl">🌸</span> <span class="font-medium" style="color: var(--color-text);">07 de Março • 14:30</span> <span class="text-xl">🌸</span>
+     </div>
+    </header><!-- Main Card -->
+    <main class="max-w-4xl mx-auto">
+    <!-- Prêmios Section (stack) -->
+    <div class="space-y-6 mb-10 px-4 md:px-0 slide-up" style="animation-delay: 0.1s;">
+
+      <!-- Cursos Evolua+ (bolsas) -->
+      <section class="card-glow rounded-3xl overflow-hidden" style="background: var(--color-surface);">
+        <div class="relative">
+          <img src="assets/curso-informatica.webp" alt="CERTIFICAÇÃO EM INFORMÁTICA ESSENCIAL" class="w-full h-[320px] md:h-[420px] object-cover" />
+          <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(0,0,0,0.62), rgba(0,0,0,0.10));"></div>
+          <div class="absolute left-5 right-5 bottom-5 md:left-8 md:bottom-8">
+            <h3 class="font-display text-xl md:text-3xl font-bold text-white">CERTIFICAÇÃO EM INFORMÁTICA ESSENCIAL</h3>
+            <p class="mt-2 text-sm md:text-base text-white/90">Bolsa de estudo <strong>integral</strong> • Curso 100% online</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card-glow rounded-3xl overflow-hidden" style="background: var(--color-surface);">
+        <div class="relative">
+          <img src="assets/curso-gestao-contabil.webp" alt="CERTIFICAÇÃO EM GESTÃO CONTÁBIL E ESSENCIAL" class="w-full h-[320px] md:h-[420px] object-cover" />
+          <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(0,0,0,0.62), rgba(0,0,0,0.10));"></div>
+          <div class="absolute left-5 right-5 bottom-5 md:left-8 md:bottom-8">
+            <h3 class="font-display text-xl md:text-3xl font-bold text-white">CERTIFICAÇÃO EM GESTÃO CONTÁBIL E ESSENCIAL</h3>
+            <p class="mt-2 text-sm md:text-base text-white/90">Bolsa de estudo <strong>integral</strong> • Curso 100% online</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card-glow rounded-3xl overflow-hidden" style="background: var(--color-surface);">
+        <div class="relative">
+          <img src="assets/curso-gestao-rh.webp" alt="CERTIFICAÇÃO EM GESTÃO DE RH ESSENCIAL" class="w-full h-[320px] md:h-[420px] object-cover" />
+          <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(0,0,0,0.62), rgba(0,0,0,0.10));"></div>
+          <div class="absolute left-5 right-5 bottom-5 md:left-8 md:bottom-8">
+            <h3 class="font-display text-xl md:text-3xl font-bold text-white">CERTIFICAÇÃO EM GESTÃO DE RH ESSENCIAL</h3>
+            <p class="mt-2 text-sm md:text-base text-white/90">Bolsa de estudo <strong>integral</strong> • Curso 100% online</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card-glow rounded-3xl overflow-hidden" style="background: var(--color-surface);">
+        <div class="relative">
+          <img src="assets/curso-edicao-imagens-videos.webp" alt="CERTIFICAÇÃO EM TÉCNICAS EM EDIÇÃO DE IMAGENS E VÍDEOS" class="w-full h-[320px] md:h-[420px] object-cover" />
+          <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(0,0,0,0.62), rgba(0,0,0,0.10));"></div>
+          <div class="absolute left-5 right-5 bottom-5 md:left-8 md:bottom-8">
+            <h3 class="font-display text-xl md:text-3xl font-bold text-white">CERTIFICAÇÃO EM TÉCNICAS EM EDIÇÃO DE IMAGENS E VÍDEOS</h3>
+            <p class="mt-2 text-sm md:text-base text-white/90">Bolsa de estudo <strong>integral</strong> • Curso 100% online</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Prêmio Parceiro: Santiago Multimarcas (grande) -->
+      <section class="card-glow rounded-3xl overflow-hidden" style="background: var(--color-surface);">
+        <div class="relative">
+          <div class="grid md:grid-cols-2">
+            <img src="assets/premio-tenis-2.webp" alt="Prêmio: Tênis (Santiago Multimarcas) - foto 1" class="w-full h-[360px] md:h-[520px] object-cover" />
+            <img src="assets/premio-tenis-1.webp" alt="Prêmio: Tênis (Santiago Multimarcas) - foto 2" class="w-full h-[360px] md:h-[520px] object-cover" />
+          </div>
+          <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(0,0,0,0.55), rgba(0,0,0,0.05));"></div>
+          <div class="absolute left-5 right-5 bottom-5 md:left-8 md:bottom-8">
+            <h3 class="font-display text-2xl md:text-4xl font-bold text-white">Prêmio Parceiro: Tênis</h3>
+            <p class="mt-2 text-sm md:text-base text-white/90">Cedida por <strong>Santiago Multimarcas</strong></p>
+          </div>
+        </div>
+        <div class="p-6 md:p-8 space-y-4">
+          <div class="bg-white/70 rounded-2xl px-4 py-3 flex items-center justify-center">
+            <img src="assets/logo-santiago-multimarcas.webp" alt="Logo Santiago Multimarcas" class="h-16 md:h-20 w-auto max-w-full object-contain" />
+          </div>
+          <a href="https://wa.me/5565999987681?text=Ol%C3%A1%21%20Vi%20o%20pr%C3%AAmio%20do%20sorteio%20do%20Dia%20das%20Mulheres%20da%20Evolua%2B%20e%20quero%20saber%20mais%20sobre%20a%20loja%20Santiago%20Multimarcas%20%F0%9F%98%8A"
+             target="_blank" rel="noopener"
+             class="w-full text-center px-6 py-4 rounded-xl font-bold uppercase tracking-wide transition-all duration-300 transform hover:scale-[1.02]"
+             style="background: linear-gradient(135deg, #111827, #374151); color: white;">
+            Contato WhatsApp da Loja
+          </a>
+        </div>
+      </section>
+<!-- PRÊMIO PARCEIRO - BOLSA -->
+<section class="card-glow rounded-3xl overflow-hidden" style="background: var(--color-surface);">
+
+  <div class="grid md:grid-cols-2 gap-4 p-4">
+
+    <img src="assets/premio-bolsa-2.webp"
+    alt="Bolsa Droga Miza"
+    class="w-full h-[350px] md:h-[450px] object-cover rounded-xl">
+
+    <img src="assets/premio-bolsa-1.webp"
+    alt="Bolsa Droga Miza detalhe"
+    class="w-full h-[350px] md:h-[450px] object-cover rounded-xl">
+
+  </div>
+
+  <div class="px-6 pb-4 text-center">
+    <h3 class="font-display text-2xl md:text-3xl font-bold">
+      Prêmio Parceiro: Bolsa
+    </h3>
+    <p class="opacity-80">
+      Cedida por <strong>Droga Miza</strong>
+    </p>
+  </div>
+
+  <div class="flex justify-center pb-4">
+    <img src="assets/logo-droga-miza.webp"
+    alt="Droga Miza"
+    class="h-16 object-contain">
+  </div>
+
+  <div class="p-6 flex justify-center">
+    <a href="https://wa.me/55659999568219"
+    target="_blank"
+    class="px-6 py-4 rounded-xl font-bold text-white"
+    style="background: linear-gradient(135deg,#111827,#374151);">
+
+    Contato WhatsApp do Parceiro
+
+    </a>
+  </div>
+
+</section>
+</div>
+    
+     <!-- Form Card -->
+     <div class="max-w-lg mx-auto px-4 md:px-0">
+      <div id="form-container" class="card-glow rounded-3xl p-6 md:p-8 slide-up" style="background: var(--color-surface); animation-delay: 0.2s;">
+       <!-- Form Header -->
+       <div class="text-center mb-6">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));">
+         <span class="text-3xl">🎁</span>
+        </div>
+        <h2 class="font-display text-2xl md:text-3xl font-semibold mb-2" style="color: var(--color-text);">Participe Agora!</h2>
+        <p class="text-sm" style="color: var(--color-secondary);">Preencha seus dados e boa sorte! 🍀</p>
+       </div><!-- Registration Form -->
+       <form id="registration-form" class="space-y-4">
+        <div>
+         <label for="nome" class="block text-sm font-medium mb-2" style="color: var(--color-text);"> Nome Completo </label> <input type="text" id="nome" name="nome" required placeholder="Digite seu nome" class="w-full px-4 py-3 rounded-xl border-2 transition-all duration-300 input-focus outline-none" style="background: var(--color-background); border-color: rgba(233, 30, 140, 0.3); color: var(--color-text);">
+        </div>
+        <div>
+         <label for="email" class="block text-sm font-medium mb-2" style="color: var(--color-text);"> E-mail </label> <input type="email" id="email" name="email" required placeholder="seu@email.com" class="w-full px-4 py-3 rounded-xl border-2 transition-all duration-300 input-focus outline-none" style="background: var(--color-background); border-color: rgba(233, 30, 140, 0.3); color: var(--color-text);">
+        </div>
+        <div>
+         <label for="telefone" class="block text-sm font-medium mb-2" style="color: var(--color-text);"> WhatsApp </label> <input type="tel" id="telefone" name="telefone" required placeholder="(00) 00000-0000" class="w-full px-4 py-3 rounded-xl border-2 transition-all duration-300 input-focus outline-none" style="background: var(--color-background); border-color: rgba(233, 30, 140, 0.3); color: var(--color-text);">
+        </div>
+        <div class="pt-2">
+          <label class="flex items-start gap-3 cursor-pointer select-none">
+            <input id="consentimento" name="consentimento" type="checkbox" required
+              class="mt-1 w-5 h-5 rounded border-2"
+              style="accent-color: var(--color-primary); border-color: rgba(233, 30, 140, 0.4);" />
+            <span class="text-xs md:text-sm" style="color: var(--color-text);">
+              <strong>Obrigatório:</strong> Eu aceito receber mensagens de promoções e oportunidades da <strong>Evolua+ Profissões</strong>
+              e de <strong>empresas parceiras</strong> (WhatsApp/e-mail). Sem esse aceite, não é possível participar do sorteio.
+            </span>
+          </label>
+        </div>
+
+        <button type="submit" id="submit-btn" class="w-full py-4 rounded-xl font-bold text-lg uppercase tracking-wide transition-all duration-300 transform hover:scale-[1.02] btn-glow mt-6" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); color: var(--color-background);"> <span id="btn-text">QUERO PARTICIPAR!</span> <span id="btn-loading" class="hidden">
+          <svg class="animate-spin h-6 w-6 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24">
+           <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle> <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg></span> </button>
+       </form><!-- Privacy Notice -->
+       <p class="text-center text-xs mt-4 opacity-70" style="color: var(--color-secondary);">🔒 Seus dados estão seguros conosco</p>
+      </div>
+     </div><!-- Success Message (Hidden by default) -->
+     <div id="success-message" class="hidden card-glow rounded-3xl p-8 text-center max-w-lg mx-auto px-4 md:px-0" style="background: var(--color-surface);">
+      <div class="success-checkmark inline-flex items-center justify-center w-20 h-20 rounded-full mb-6" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
+       <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+       </svg>
+      </div>
+      <h3 class="font-display text-2xl md:text-3xl font-bold mb-3" style="color: var(--color-text);">Inscrição Confirmada! 🎉</h3>
+      <p class="mb-6" style="color: var(--color-primary);">Você está participando do sorteio!<br>
+        Boa sorte! 🍀✨</p>
+      <div class="inline-flex items-center gap-2 px-5 py-3 rounded-full" style="background: var(--color-background);">
+       <span class="text-xl">📅</span> <span style="color: var(--color-text);">Resultado: 07 de Março • 14:30</span>
+      </div>
+     </div><!-- Error Message (Hidden by default) -->
+     <div id="error-message" class="hidden mt-4 p-4 rounded-xl text-center max-w-lg mx-auto" style="background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444;">
+      <p class="text-red-400 text-sm">Ocorreu um erro. Por favor, tente novamente.</p>
+     </div>
+    </main><!-- Footer -->
+    <footer class="text-center mt-8 md:mt-12">
+     <div class="flex items-center justify-center gap-2 text-sm" style="color: var(--color-secondary);">
+      <span>💜</span> <span>Celebre o poder feminino</span> <span>💜</span>
+     </div>
+    
+    <div class="mt-6 text-center text-sm px-4">
+      <div class="inline-flex flex-col md:flex-row items-center justify-center gap-2 px-5 py-3 rounded-2xl"
+           style="background: rgba(255,255,255,0.55); border: 1px solid rgba(233, 30, 140, 0.25);">
+        <span style="color: var(--color-text);"><strong>Divulgação dos vencedores:</strong></span>
+        <span style="color: var(--color-primary);">@evoluamaisprofissoesoficial</span>
+        <span style="color: var(--color-text);">• WhatsApp:</span>
+        <a class="font-semibold underline" style="color: var(--color-primary);" href="https://wa.me/5565996834279?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20Sorteio%20do%20Dia%20das%20Mulheres%20e%20quero%20falar%20com%20a%20Evolua%2B%20Profiss%C3%B5es%20%F0%9F%98%8A" target="_blank" rel="noopener">
+          (65) 99683-4279
+        </a>
+      </div>
+    </div>
+
+    </footer>
+   </div>
+  </div>
+  <script>
+    // Default Configuration
+    const defaultConfig = {
+      titulo_principal: 'Sorteio Especial',
+      subtitulo: 'Dia Internacional das Mulheres',
+      premio_descricao: 'Concorra a prêmios incríveis!',
+      botao_texto: 'QUERO PARTICIPAR!',
+      premio_1_nome: 'Operador de Informática Essencial',
+      premio_1_desc: 'Bolsa 100% gratuita • Curso online',
+      premio_2_nome: 'Assistente Financeiro',
+      premio_2_desc: 'Bolsa 100% gratuita • 100% online',
+      premio_3_nome: 'Assistente Administrativo',
+      premio_3_desc: 'Bolsa 100% gratuita • 100% online',
+      premio_4_nome: 'Prêmio Parceiro: Tênis',
+      premio_4_desc: 'Oferta da Santiago Multimarcas',
+      background_color: '#fff5f9',
+      surface_color: '#ffe4f0',
+      text_color: '#5a1d3f',
+      primary_color: '#e91e8c',
+      secondary_color: '#ff69b4',
+      font_family: 'Poppins',
+      font_size: 16
+    };
+
+    let currentRecordCount = 0;
+
+    // Data SDK Handler
+    const dataHandler = {
+      onDataChanged(data) {
+        currentRecordCount = data.length;
+      }
+    };
+
+    // Phone mask function
+    function phoneMask(value) {
+      value = value.replace(/\D/g, '');
+      if (value.length <= 11) {
+        value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+        value = value.replace(/(\d{5})(\d)/, '$1-$2');
+      }
+      return value;
+    }
+
+    // Initialize phone mask
+    document.getElementById('telefone').addEventListener('input', function(e) {
+      e.target.value = phoneMask(e.target.value);
+    });
+
+    // Form submission
+    document.getElementById('registration-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submit-btn');
+      const btnText = document.getElementById('btn-text');
+      const btnLoading = document.getElementById('btn-loading');
+      const errorMessage = document.getElementById('error-message');
+      
+      // Check limit
+      if (currentRecordCount >= 999) {
+        errorMessage.textContent = 'Limite de inscrições atingido. Por favor, tente novamente mais tarde.';
+        errorMessage.classList.remove('hidden');
+        return;
+      }
+      
+      // Show loading state
+      submitBtn.disabled = true;
+      btnText.classList.add('hidden');
+      btnLoading.classList.remove('hidden');
+      errorMessage.classList.add('hidden');
+      
+      const formData = {
+        nome: document.getElementById('nome').value,
+        email: document.getElementById('email').value,
+        telefone: document.getElementById('telefone').value,
+        data_inscricao: new Date().toISOString()
+      };
+      
+      try {
+        // Save to Data SDK
+        if (window.dataSdk) {
+          const result = await window.dataSdk.create(formData);
+          
+          if (result.isOk) {
+            // Send email via FormSubmit
+            await sendEmail(formData);
+            showSuccess();
+          } else {
+            showError();
+          }
+        } else {
+          // Fallback: just send email
+          await sendEmail(formData);
+          showSuccess();
+        }
+      } catch (error) {
+        console.error('Submission error:', error);
+        showError();
+      }
+    });
+
+    async function sendEmail(formData) {
+      // Create a hidden form for FormSubmit service
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = 'https://formsubmit.co/ajax/evoluamaisprofissoes@gmail.com';
+      form.style.display = 'none';
+      
+      const response = await fetch('https://formsubmit.co/ajax/evoluamaisprofissoes@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          nome: formData.nome,
+          email: formData.email,
+          whatsapp: formData.telefone,
+          _subject: '🎁 Nova Inscrição - Sorteio Dia das Mulheres',
+          _template: 'table',
+          consentimento: document.getElementById('consentimento').checked ? 'SIM' : 'NÃO'
+        })
+      });
+      
+      return response;
+    }
+
+    function showSuccess() {
+      document.getElementById('form-container').classList.add('hidden');
+      document.getElementById('success-message').classList.remove('hidden');
+    }
+
+    function showError() {
+      const submitBtn = document.getElementById('submit-btn');
+      const btnText = document.getElementById('btn-text');
+      const btnLoading = document.getElementById('btn-loading');
+      const errorMessage = document.getElementById('error-message');
+      
+      submitBtn.disabled = false;
+      btnText.classList.remove('hidden');
+      btnLoading.classList.add('hidden');
+      errorMessage.classList.remove('hidden');
+    }
+
+    // Element SDK Configuration
+    async function onConfigChange(config) {
+      const root = document.documentElement;
+      
+      // Update colors
+      root.style.setProperty('--color-background', config.background_color || defaultConfig.background_color);
+      root.style.setProperty('--color-surface', config.surface_color || defaultConfig.surface_color);
+      root.style.setProperty('--color-text', config.text_color || defaultConfig.text_color);
+      root.style.setProperty('--color-primary', config.primary_color || defaultConfig.primary_color);
+      root.style.setProperty('--color-secondary', config.secondary_color || defaultConfig.secondary_color);
+      
+      // Update fonts
+      const fontFamily = config.font_family || defaultConfig.font_family;
+      document.body.style.fontFamily = `${fontFamily}, system-ui, sans-serif`;
+      
+      const fontSize = config.font_size || defaultConfig.font_size;
+      document.body.style.fontSize = `${fontSize}px`;
+      
+      // Update text content
+      document.getElementById('titulo-principal').textContent = config.titulo_principal || defaultConfig.titulo_principal;
+      document.getElementById('subtitulo').textContent = config.subtitulo || defaultConfig.subtitulo;
+      document.getElementById('premio-descricao').textContent = config.premio_descricao || defaultConfig.premio_descricao;
+      document.getElementById('btn-text').textContent = config.botao_texto || defaultConfig.botao_texto;
+      
+      // Update prêmios
+      document.getElementById('premio-1-nome').textContent = config.premio_1_nome || defaultConfig.premio_1_nome;
+      document.getElementById('premio-1-desc').textContent = config.premio_1_desc || defaultConfig.premio_1_desc;
+      document.getElementById('premio-2-nome').textContent = config.premio_2_nome || defaultConfig.premio_2_nome;
+      document.getElementById('premio-2-desc').textContent = config.premio_2_desc || defaultConfig.premio_2_desc;
+      document.getElementById('premio-3-nome').textContent = config.premio_3_nome || defaultConfig.premio_3_nome;
+      document.getElementById('premio-3-desc').textContent = config.premio_3_desc || defaultConfig.premio_3_desc;
+      document.getElementById('premio-4-nome').textContent = config.premio_4_nome || defaultConfig.premio_4_nome;
+      document.getElementById('premio-4-desc').textContent = config.premio_4_desc || defaultConfig.premio_4_desc;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => { config.background_color = value; window.elementSdk.setConfig({ background_color: value }); }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => { config.surface_color = value; window.elementSdk.setConfig({ surface_color: value }); }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => { config.text_color = value; window.elementSdk.setConfig({ text_color: value }); }
+          },
+          {
+            get: () => config.primary_color || defaultConfig.primary_color,
+            set: (value) => { config.primary_color = value; window.elementSdk.setConfig({ primary_color: value }); }
+          },
+          {
+            get: () => config.secondary_color || defaultConfig.secondary_color,
+            set: (value) => { config.secondary_color = value; window.elementSdk.setConfig({ secondary_color: value }); }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => { config.font_family = value; window.elementSdk.setConfig({ font_family: value }); }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => { config.font_size = value; window.elementSdk.setConfig({ font_size: value }); }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['titulo_principal', config.titulo_principal || defaultConfig.titulo_principal],
+        ['subtitulo', config.subtitulo || defaultConfig.subtitulo],
+        ['premio', config.premio || defaultConfig.premio],
+        ['botao_texto', config.botao_texto || defaultConfig.botao_texto]
+      ]);
+    }
+
+    // Initialize SDKs
+    async function init() {
+      // Initialize Data SDK
+      if (window.dataSdk) {
+        await window.dataSdk.init(dataHandler);
+      }
+      
+      // Initialize Element SDK
+      if (window.elementSdk) {
+        window.elementSdk.init({
+          defaultConfig,
+          onConfigChange,
+          mapToCapabilities,
+          mapToEditPanelValues
+        });
+      }
+    }
+
+    init();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d7402c38417fa0a',t:'MTc3MjY2MDEyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
